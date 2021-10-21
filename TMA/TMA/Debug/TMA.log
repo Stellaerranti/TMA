@@ -1,5 +1,58 @@
 ﻿  MyForm.cpp
+i:\smartgit\rep\tma\tma\tma\myform.h(215): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(225): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(235): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(247): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(257): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(267): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(277): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(288): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(298): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(342): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(352): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(362): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(371): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(380): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(389): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(399): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(408): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(417): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(427): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(437): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(446): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(455): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(464): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(473): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(482): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
+i:\smartgit\rep\tma\tma\tma\myform.h(492): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
 i:\smartgit\rep\tma\tma\tma\myform.cpp(7): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
-  .NETFramework,Version=v4.6.1.AssemblyAttributes.cpp
+i:\smartgit\rep\tma\tma\tma\myform.h(333): warning C4715: TMA::MyForm::INITIALIZE_DAC: значение возвращается не при всех путях выполнения
+i:\smartgit\rep\tma\tma\tma\myform.h(502): warning C4715: TMA::MyForm::INITIALIZE_ADC: значение возвращается не при всех путях выполнения
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
   TMA.vcxproj -> I:\SmartGit\rep\TMA\TMA\Debug\TMA.exe
