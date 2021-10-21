@@ -8,13 +8,14 @@
 #include "zadc_int.h"
 //#pragma comment(lib, "Zadc.lib")
 # include "zet_declaration.h"
+#define size_of_memory 200000//Размер Главного массива
 int INITIALIZE_ADC();
 int INITIALIZE_DAC();
 void ZETOFF();
 void ZET_MESURE();
 
 bool bool_do = false;
-
+float EXTERN_DATA[4][20000];
 
 namespace TMA {
 
@@ -121,7 +122,7 @@ namespace TMA {
 			series1->ChartArea = L"ChartArea1";
 			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series1->IsVisibleInLegend = false;
-			series1->Name = L"Series1";
+			series1->Name = L"M_t";
 			this->M_t->Series->Add(series1);
 			this->M_t->Size = System::Drawing::Size(528, 366);
 			this->M_t->TabIndex = 0;
@@ -137,7 +138,7 @@ namespace TMA {
 			series2->ChartArea = L"ChartArea1";
 			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
 			series2->IsVisibleInLegend = false;
-			series2->Name = L"Series1";
+			series2->Name = L"T_t";
 			this->T_t->Series->Add(series2);
 			this->T_t->Size = System::Drawing::Size(529, 366);
 			this->T_t->TabIndex = 1;
@@ -195,6 +196,7 @@ namespace TMA {
 			this->Controls->Add(this->tableLayoutPanel1);
 			this->Name = L"MyForm";
 			this->Text = L"MyForm";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->EndInit();
@@ -203,6 +205,37 @@ namespace TMA {
 
 		}
 #pragma endregion
+		// Данные для калибровки и нагрева
+	float float_now = 0;
+	float K_M;
+	float K_A;
+	float K_B;
+	float dT;
+	int  REGIM_NAGREVA = 0;
+	float float_t_expose;
+
+	//Основные рабочие данные
+	                    //АМПЛИТУДА  МОМЕНТ ТЕМПЕРАТУРА ВРЕМЯ
+	int INT_DATA = -1;                                        //номер последнего записанного массива
+	float FLOAT_A = 0;
+	float FLOAT_A_FOR_SCREEN = 0;
+	float FLOAT_M = 0;
+	float FLOAT_TEMP = 0;
+
+	float FLOAT_TEMP_U = 0;
+	float FLOAT_TEMP_U_FOR_SCREEN = 0;
+
+	int INT_A = 0;
+	int INT_M = 0;
+	int INT_TEMP = 0;
+	float GLOBAL_T = 80;                                      //Температура до которой будет происходить нагрев
+	float FON_T = 0;                                          //Температура фона=текущей температуре
+	float EXPOS_time;
+	float T_UP = 0;
+	float T_DOWN = 0;
+	int  timer_i = 0;
+	float float_now = 0;
+
 	//Инициализация АЦПЦАП
 	int INITIALIZE_DAC()
 		{
@@ -554,7 +587,74 @@ namespace TMA {
 				printf("Function ZClose() return Error = 0x%X\n\r", Err);
 			MessageBox::Show("Zetlab is stoped");
 		}
+	//Пересчёт режима нагрева
+	float ALGORITM_TEMP()
+	{
+		float u;
+		int ALGORITM_i = 0;
+		time_t start_REGIM_NAGREVA_t;
+		time_t now_REGIM_NAGREVA_t;
+		struct tm *start_REGIM_NAGREVA;
+		struct tm *now_REGIM_NAGREVA;
+		if (REGIM_NAGREVA == 0)
+		{
+			u = 3.5;
+			if ((FLOAT_TEMP > 35) && (FLOAT_TEMP <= GLOBAL_T - 5))
+			{
+				REGIM_NAGREVA = 1;
+			}
 
+		}
+
+		if (REGIM_NAGREVA == 1)
+		{
+			
+			u = K_A * FLOAT_TEMP + K_B;// -2.5;
+			if (FLOAT_TEMP >= GLOBAL_T - 5)
+			{
+				REGIM_NAGREVA = 2;
+				time(&start_REGIM_NAGREVA_t);
+				start_REGIM_NAGREVA = localtime(&start_REGIM_NAGREVA_t);
+			}
+
+		}
+		if (REGIM_NAGREVA == 2)
+		{
+			
+			u = 0.263*pow(GLOBAL_T, 0.573);// -2.5;
+			time(&now_REGIM_NAGREVA_t);
+			now_REGIM_NAGREVA = localtime(&now_REGIM_NAGREVA_t);
+			float_t_expose = ((now_REGIM_NAGREVA->tm_hour - start_REGIM_NAGREVA->tm_hour) * 3600 + (now_REGIM_NAGREVA->tm_min - start_REGIM_NAGREVA->tm_min) * 60 + (now_REGIM_NAGREVA->tm_sec - start_REGIM_NAGREVA->tm_sec));
+			if (float_t_expose >= EXPOS_time)
+			{
+				REGIM_NAGREVA = 3;
+
+			}
+
+		}
+
+		if (REGIM_NAGREVA == 3)
+		{
+			u = 0.3*(K_A*FLOAT_TEMP + K_B);// -2.5;
+			if (FLOAT_TEMP < 45)
+			{
+				REGIM_NAGREVA = 4;
+			}
+		}
+		if (REGIM_NAGREVA == 4)
+		{
+			u = 0;
+		}
+
+		if (u > 9.5)
+		{
+			u = 9.5;
+		}
+
+
+
+		return u;
+	}
 	//ТЕмпература в цельсиях по термо ЭДС
 	float chrom(float u) {
 			// функция возвращает значение температуры(в градусах цельсия) для термо эдс  в В. 
@@ -573,9 +673,151 @@ namespace TMA {
 
 
 		}
+	//Сбор данных из буфера АЦПЦАП
+	void ZET_MESURE()
+	{
+		amplitude0 = amplitude_volt_0 / (resolutionDAC0 * attenDAC0);
+		// Запросить указатель на текущий элемент буфера
+		Err = ZGetPointerDAC(typeDevice, numberDSP, &pointerDriverDAC);
+		if (Err != 0)
+		{
+			MessageBox::Show("Can not reach the buffer");
+		}
+		// Если опережение записи данных больше чем на один пакет, то перейти в начало цикла и подождать
+		if (!(pointerCycleDAC - pointerDriverDAC > sizePacketDAC))
+		{
+			if (!((pointerDriverDAC > pointerCycleDAC) &&
+				(sizeBufferDAC - pointerDriverDAC + pointerCycleDAC > sizePacketDAC)))
+			{
+				// Обновить предыдущее значение указателя драйвера
+				pointerDriverDAC_old = pointerDriverDAC;
+				// Запись в буфер драйвера очередного пакета данных
+				size = sizePacketDAC;
+				// Если пакет выходит за границы буфера драйвера, то его нужно разделить на две части
+				if (pointerCycleDAC + sizePacketDAC > sizeBufferDAC)
+					size = sizeBufferDAC - pointerCycleDAC;
 
+				size = size / numWordsDAC;
+				if (numWordsDAC == 1)
+					for (i = 0; i < size; i++)
+					{
+						volt0_DAC = amplitude0;
+						pBuffer16DAC[pointerCycleDAC + i] = (short)volt0_DAC;
+					}
+				else
+					for (i = 0; i < size; i++)
+					{
+						volt0_DAC = amplitude0;
+						pBuffer32DAC[pointerCycleDAC / numWordsDAC + i] = (long)volt0_DAC;
+					}
 
+				// Передвинуть указатель на отсчет для следующей записи
+				pointerCycleDAC += numWordsDAC * size;
+				// Если подошли к концу буфера, то перейти в начало
+				if (pointerCycleDAC >= sizeBufferDAC)
+					pointerCycleDAC = 0;
 
+				if (size < (sizePacketDAC / numWordsDAC))
+				{
+					// Запись в буфер драйвера второй части пакета данных, если пакет пришлось разорвать 
+					size = (sizePacketDAC / numWordsDAC) - size;
+					if (numWordsDAC == 1)
+						for (i = 0; i < size; i++)
+						{
+							volt0_DAC = amplitude0;
+							pBuffer16DAC[pointerCycleDAC + i] = (short)volt0_DAC;
+						}
+					else
+						for (i = 0; i < size; i++)
+						{
+							volt0_DAC = amplitude0;
+							pBuffer32DAC[pointerCycleDAC / numWordsDAC + i] = (long)volt0_DAC;
+						}
+					// Передвинуть указатель на отсчет для следующей записи
+					pointerCycleDAC += numWordsDAC * size;
+				}
+			}
+		}
+		/////////////////////////ADC
+		// запросить указатель на текущий элемент буфера
+		Err = ZGetPointerADC(typeDevice, numberDSP, &pointerADC);
+		if (Err != 0)
+		{
+			MessageBox::Show("Can not reach the buffer");
+		}
+
+		// Если новые данные в буфер от АЦП не поступили, то перейти в начало цикла и подождать
+		if (pointerADC != pointerADC_old)
+		{
+			// обновить предыдущее значение указателя
+			pointerADC_old = pointerADC;
+			// перейти на отсчет первого включенного канала последнего кадра АЦП
+			if (pointerADC - numWordsADC * numChannelsADC < 0)
+				pointerADC = sizeBufferADC + pointerADC - numWordsADC * numChannelsADC;
+			else
+				pointerADC = pointerADC - numWordsADC * numChannelsADC;
+			// вычислить из целого значения отсчета АЦП вещественное значение отсчета (в Вольтах)
+			if (numWordsADC == 1)
+				volt0 = resolutionADC0 * (pBuffer16ADC[pointerADC]) / amplifyADC0;
+			else
+				volt0 = resolutionADC0 * (pBuffer32ADC[pointerADC / numWordsADC]) / amplifyADC0;
+
+			// если включено более одного канала АЦП, то сделать то же самое для второго канала
+			if (numChannelsADC > 1)
+			{
+				// перейти на следующий отсчет АЦП
+				pointerADC += numWordsADC;
+				// если вышли за границу буфера, то перейти в начало
+				if (pointerADC >= sizeBufferADC)
+					pointerADC = pointerADC - sizeBufferADC;
+
+				if (numWordsADC == 1)
+					volt1 = resolutionADC1 * (pBuffer16ADC[pointerADC]) / amplifyADC1;
+				else
+					volt1 = resolutionADC1 * (pBuffer32ADC[pointerADC / numWordsADC]) / amplifyADC1;
+
+				// перейти на следующий отсчет АЦП
+				pointerADC += numWordsADC;
+				// если вышли за границу буфера, то перейти в начало
+				if (pointerADC >= sizeBufferADC)
+					pointerADC = pointerADC - sizeBufferADC;
+
+				if (numWordsADC == 1)
+					volt2 = resolutionADC2 * (pBuffer16ADC[pointerADC]) / amplifyADC2;
+				else
+					volt2 = resolutionADC2 * (pBuffer32ADC[pointerADC / numWordsADC]) / amplifyADC2;
+
+				// перейти на следующий отсчет АЦП
+				pointerADC += numWordsADC;
+				// если вышли за границу буфера, то перейти в начало
+				if (pointerADC >= sizeBufferADC)
+					pointerADC = pointerADC - sizeBufferADC;
+
+				if (numWordsADC == 1)
+					volt3 = resolutionADC3 * (pBuffer16ADC[pointerADC]) / amplifyADC3;
+				else
+					volt3 = resolutionADC3 * (pBuffer32ADC[pointerADC / numWordsADC]) / amplifyADC3;
+			}
+
+		}
+	}
+	   
+	//Происходит при загрузке формы
+	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
+	{
+		M_t->Series['M_t']->Points->Clear();
+		T_t->Series['T_t']->Points->Clear();
+
+		M_t->ChartAreas[0]->AxisX->Crossing = 0;
+		M_t->ChartAreas[0]->AxisY->Crossing = 0;
+		T_t->ChartAreas[0]->AxisX->Crossing = 0;
+		T_t->ChartAreas[0]->AxisY->Crossing = 0;
+
+		M_t->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		M_t->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
+		T_t->ChartAreas[0]->AxisX->LabelStyle->Format = "{0:0.#E+0}";
+		T_t->ChartAreas[0]->AxisY->LabelStyle->Format = "{0:0.#E+0}";
+	}
 	//Запуск измерений
 	private: System::Void button_start_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
@@ -583,8 +825,8 @@ namespace TMA {
 		button_stop->Enabled = true;
 		bool_do = true;
 	}
-//Остановка измерений
-private: System::Void button_stop_Click(System::Object^  sender, System::EventArgs^  e)
+	//Остановка измерений
+	private: System::Void button_stop_Click(System::Object^  sender, System::EventArgs^  e)
 {
 	button_start->Enabled = true;
 	button_stop->Enabled = false;
@@ -594,10 +836,83 @@ private: System::Void button_stop_Click(System::Object^  sender, System::EventAr
 	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e) {
 
 			 if (bool_do)
-			 {
+			 {				 
+				ZET_MESURE();
 
+
+				 //FLOAT_TEMP = FLOAT_TEMP +chrom(volt0);так было в версии 2.7
+				 FLOAT_TEMP = FLOAT_TEMP + volt0;//так   в 2.8
+				 FLOAT_TEMP_U = FLOAT_TEMP_U + volt0 * 1000;
+				 FLOAT_A = FLOAT_A + volt1;
+
+				 FLOAT_M = FLOAT_M + volt2;
+
+
+
+
+				 timer_i++;
+
+				 if (timer_i == 50)
+				 {
+					 SetThreadExecutionState(ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED);
+
+					 FLOAT_M = K_M * FLOAT_M / FLOAT_A;
+					 FLOAT_TEMP = FLOAT_TEMP / 50;
+					 FLOAT_TEMP = chrom(FLOAT_TEMP);//так будет в 2.8
+					 FLOAT_TEMP_U = FLOAT_TEMP_U / 50;
+					 FLOAT_TEMP_U_FOR_SCREEN = FLOAT_TEMP_U;
+					 FLOAT_A_FOR_SCREEN = FLOAT_A / 50;
+
+					 amplitude_volt_0 = ALGORITM_TEMP();
+					 amplitude_volt_1 = amplitude_volt_0;
+
+					 //После того как данные записали увеличиваем сетчик количества элементов на 1
+					 INT_DATA = INT_DATA + 1;
+					 FON_T = FLOAT_TEMP;
+
+					 //Заполнение массива
+					 EXTERN_DATA[0][INT_DATA] = FLOAT_TEMP_U_FOR_SCREEN;
+					 EXTERN_DATA[1][INT_DATA] = FLOAT_M;
+					 EXTERN_DATA[2][INT_DATA] = FLOAT_TEMP;
+					 EXTERN_DATA[3][INT_DATA] = float_now;
+					 /*
+					 //Запись данных в файл
+					 sprintf(n, "%10.5f", EXTERN_DATA[0][INT_DATA]);
+					 fwrite(n, sizeof(char), sizeof(n), fr);
+					 fwrite("\t", sizeof(char), 1, fr);
+					 sprintf(n, "%10.2f", EXTERN_DATA[1][INT_DATA]);
+					 fwrite(n, sizeof(char), sizeof(n), fr);
+					 fwrite("\t", sizeof(char), 1, fr);
+					 sprintf(n, "%10.2f", EXTERN_DATA[2][INT_DATA]);
+					 fwrite(n, sizeof(char), sizeof(n), fr);
+					 fwrite("\t", sizeof(char), 1, fr);
+					 sprintf(n, "%10.2f", EXTERN_DATA[3][INT_DATA]);
+					 fwrite(n, sizeof(char), sizeof(n), fr);
+					 fwrite("\n", sizeof(char), 1, fr);
+
+					 */
+					 if (INT_DATA == size_of_memory)
+					 {
+						 INT_DATA = 0;
+						  //Если размер массива выходит за пределы выделяемой  памяти обнуляем счетчик
+						 //На сохранность данных это не влияет, так как они уже записаны в файл
+						 //Новые данные будут записываться поверх старых поэтому достаточно обнуляем счетчик без обнуления массива 
+					 };
+
+
+					 FLOAT_A = 0;
+					 FLOAT_M = 0;
+					 FLOAT_TEMP = 0;
+					 FLOAT_TEMP_U = 0;
+					 timer_i = 0;
+
+
+					 
+
+				 }
 			 }
 
 		 }
+
 };
 }
