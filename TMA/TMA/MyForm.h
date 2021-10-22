@@ -17,8 +17,9 @@ int INITIALIZE_ADC();
 int INITIALIZE_DAC();
 void ZETOFF();
 void ZET_MESURE();
-FILE *fr;
+
 bool bool_do = false;
+//АМПЛИТУДА  МОМЕНТ ТЕМПЕРАТУРА ВРЕМЯ
 float EXTERN_DATA[4][20000];
 
 namespace TMA {
@@ -30,7 +31,7 @@ namespace TMA {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace std;
-
+	using namespace Runtime::InteropServices;
 	/// <summary>
 	/// Сводка для MyForm
 	/// </summary>
@@ -66,7 +67,8 @@ namespace TMA {
 	private: System::Windows::Forms::ToolStrip^  toolStrip1;
 	private: System::Windows::Forms::ToolStripButton^  out_file;
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
-
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ Ht_point;
+			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ Tt_point;
 
 	private: System::ComponentModel::IContainer^  components;
 	protected:
@@ -247,7 +249,7 @@ namespace TMA {
 #pragma endregion
 		// Данные для калибровки и нагрева
 
-	//String ^path = "";
+	String ^path = "";
 	float K_M;
 	float K_A;
 	float K_B;
@@ -278,6 +280,12 @@ namespace TMA {
 	float float_now = 0;
 	int size = 0;
 
+	void MarshalString(String ^ s, string& os)
+	{
+		const char* chars = (const char*)(Marshal::StringToHGlobalAnsi(s)).ToPointer();
+		os = chars;
+		Marshal::FreeHGlobal(IntPtr((void*)chars));
+	}
 	//Инициализация АЦПЦАП
 	int INITIALIZE_DAC()
 		{
@@ -844,16 +852,31 @@ namespace TMA {
 		}
 	}
 	//Подключение файла в который будут сохранятся данные
-private: System::Void out_file_Click(System::Object^  sender, System::EventArgs^  e)
+	private: System::Void out_file_Click(System::Object^  sender, System::EventArgs^  e)
 {
-	/*saveFileDialog1->Filter = "Output files|*.jr6|All files(*.*)|*.*";
+	saveFileDialog1->Filter = "Output files|*.jr6|All files(*.*)|*.*";
 
 	System::Windows::Forms::DialogResult result = saveFileDialog1->ShowDialog();
 
 	if (result != System::Windows::Forms::DialogResult::OK)
 		return;
 	System::String^ filename = saveFileDialog1->FileName;
-	//path = filename;*/
+	path = filename;
+	string s2 = "";
+	MarshalString(filename, s2);
+
+	ofstream fout(s2, ios_base::app);
+	char fname[255];
+	strcpy_s(fname, s2.c_str());
+
+	char *pch = strrchr(fname, '\\');
+	string filabel = string(pch);
+	filabel.erase(0, 1);
+
+	fout << "TERMO EDS,mV     М,мкАмм      T,gradC      t,sec" << '\n' << endl;
+
+	
+
 }
 	//Происходит при загрузке формы
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
@@ -943,24 +966,21 @@ private: System::Void out_file_Click(System::Object^  sender, System::EventArgs^
 					 EXTERN_DATA[1][INT_DATA] = FLOAT_M;
 					 EXTERN_DATA[2][INT_DATA] = FLOAT_TEMP;
 					 EXTERN_DATA[3][INT_DATA] = float_now;
-					 /*
-					 //Запись данных в файл
-					 sprintf(n, "%10.5f", EXTERN_DATA[0][INT_DATA]);
-					 fwrite(n, sizeof(char), sizeof(n), fr);
-					 fwrite("\t", sizeof(char), 1, fr);
-					 sprintf(n, "%10.2f", EXTERN_DATA[1][INT_DATA]);
-					 fwrite(n, sizeof(char), sizeof(n), fr);
-					 fwrite("\t", sizeof(char), 1, fr);
-					 sprintf(n, "%10.2f", EXTERN_DATA[2][INT_DATA]);
-					 fwrite(n, sizeof(char), sizeof(n), fr);
-					 fwrite("\t", sizeof(char), 1, fr);
-					 sprintf(n, "%10.2f", EXTERN_DATA[3][INT_DATA]);
-					 fwrite(n, sizeof(char), sizeof(n), fr);
-					 fwrite("\n", sizeof(char), 1, fr);
+					 
+					 string s2 = "";
+					 MarshalString(path, s2);					 
 
-					 */
+					 ofstream fout(s2, ios_base::app);
+					 //АМПЛИТУДА  МОМЕНТ ТЕМПЕРАТУРА ВРЕМЯ
+					 fout << EXTERN_DATA[0][INT_DATA] << '\t' << EXTERN_DATA[1][INT_DATA] << '\t' << EXTERN_DATA[2][INT_DATA] << '\t' << EXTERN_DATA[3][INT_DATA] << '\t' << '\n' << endl;
 
+					 Tt_point= (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+					 Tt_point->SetValueXY(EXTERN_DATA[3][INT_DATA], EXTERN_DATA[2][INT_DATA]);
+					 T_t->Series['T_t']->Points->Add(Tt_point);
 
+					 Ht_point = (gcnew System::Windows::Forms::DataVisualization::Charting::DataPoint());
+					 Ht_point->SetValueXY(EXTERN_DATA[1][INT_DATA], EXTERN_DATA[2][INT_DATA]);
+					 M_t->Series['M_t']->Points->Add(Tt_point);
 
 					 if (INT_DATA == size_of_memory)
 					 {
