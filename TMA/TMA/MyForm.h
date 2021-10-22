@@ -3,17 +3,21 @@
 #include <stdio.h>
 #include<cmath>
 #include <windows.h>
+#include <string>
+#include <fstream>
 #include<time.h>
 #include <conio.h>
-#include "zadc_int.h"
-//#pragma comment(lib, "Zadc.lib")
+#include <cstdlib>
+#include "Zadc_int.h"
+#pragma comment(lib, "Zadc.lib")
 # include "zet_declaration.h"
+
 #define size_of_memory 200000//Размер Главного массива
 int INITIALIZE_ADC();
 int INITIALIZE_DAC();
 void ZETOFF();
 void ZET_MESURE();
-
+FILE *fr;
 bool bool_do = false;
 float EXTERN_DATA[4][20000];
 
@@ -25,6 +29,7 @@ namespace TMA {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace std;
 
 	/// <summary>
 	/// Сводка для MyForm
@@ -58,6 +63,10 @@ namespace TMA {
 	private: System::Windows::Forms::Button^  button_start;
 	private: System::Windows::Forms::Button^  button_stop;
 	private: System::Windows::Forms::Timer^  timer;
+	private: System::Windows::Forms::ToolStrip^  toolStrip1;
+	private: System::Windows::Forms::ToolStripButton^  out_file;
+	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
+
 
 	private: System::ComponentModel::IContainer^  components;
 	protected:
@@ -80,17 +89,22 @@ namespace TMA {
 			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
 			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->M_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->T_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button_start = (gcnew System::Windows::Forms::Button());
 			this->button_stop = (gcnew System::Windows::Forms::Button());
+			this->M_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->T_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
+			this->out_file = (gcnew System::Windows::Forms::ToolStripButton());
 			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tableLayoutPanel1->SuspendLayout();
+			this->tableLayoutPanel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->BeginInit();
-			this->tableLayoutPanel2->SuspendLayout();
+			this->toolStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -100,49 +114,19 @@ namespace TMA {
 				50)));
 			this->tableLayoutPanel1->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
 				50)));
-			this->tableLayoutPanel1->Controls->Add(this->M_t, 0, 0);
-			this->tableLayoutPanel1->Controls->Add(this->T_t, 1, 0);
-			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 0, 1);
+			this->tableLayoutPanel1->Controls->Add(this->tableLayoutPanel2, 0, 2);
+			this->tableLayoutPanel1->Controls->Add(this->M_t, 0, 1);
+			this->tableLayoutPanel1->Controls->Add(this->T_t, 1, 1);
+			this->tableLayoutPanel1->Controls->Add(this->toolStrip1, 0, 0);
 			this->tableLayoutPanel1->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel1->Location = System::Drawing::Point(0, 0);
 			this->tableLayoutPanel1->Name = L"tableLayoutPanel1";
-			this->tableLayoutPanel1->RowCount = 2;
+			this->tableLayoutPanel1->RowCount = 3;
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 5)));
 			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 70)));
-			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 30)));
+			this->tableLayoutPanel1->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 25)));
 			this->tableLayoutPanel1->Size = System::Drawing::Size(1069, 532);
 			this->tableLayoutPanel1->TabIndex = 0;
-			// 
-			// M_t
-			// 
-			chartArea1->Name = L"ChartArea1";
-			this->M_t->ChartAreas->Add(chartArea1);
-			this->M_t->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->M_t->Location = System::Drawing::Point(3, 3);
-			this->M_t->Name = L"M_t";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->IsVisibleInLegend = false;
-			series1->Name = L"M_t";
-			this->M_t->Series->Add(series1);
-			this->M_t->Size = System::Drawing::Size(528, 366);
-			this->M_t->TabIndex = 0;
-			this->M_t->Text = L"M_t";
-			// 
-			// T_t
-			// 
-			chartArea2->Name = L"ChartArea1";
-			this->T_t->ChartAreas->Add(chartArea2);
-			this->T_t->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->T_t->Location = System::Drawing::Point(537, 3);
-			this->T_t->Name = L"T_t";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->IsVisibleInLegend = false;
-			series2->Name = L"T_t";
-			this->T_t->Series->Add(series2);
-			this->T_t->Size = System::Drawing::Size(529, 366);
-			this->T_t->TabIndex = 1;
-			this->T_t->Text = L"T_t";
 			// 
 			// tableLayoutPanel2
 			// 
@@ -154,12 +138,12 @@ namespace TMA {
 			this->tableLayoutPanel2->Controls->Add(this->button_start, 1, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button_stop, 1, 1);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 375);
+			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 401);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 2;
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
 			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->Size = System::Drawing::Size(528, 154);
+			this->tableLayoutPanel2->Size = System::Drawing::Size(528, 128);
 			this->tableLayoutPanel2->TabIndex = 3;
 			// 
 			// button_start
@@ -175,13 +159,66 @@ namespace TMA {
 			// button_stop
 			// 
 			this->button_stop->Enabled = false;
-			this->button_stop->Location = System::Drawing::Point(267, 80);
+			this->button_stop->Location = System::Drawing::Point(267, 67);
 			this->button_stop->Name = L"button_stop";
 			this->button_stop->Size = System::Drawing::Size(75, 23);
 			this->button_stop->TabIndex = 3;
 			this->button_stop->Text = L"stop";
 			this->button_stop->UseVisualStyleBackColor = true;
 			this->button_stop->Click += gcnew System::EventHandler(this, &MyForm::button_stop_Click);
+			// 
+			// M_t
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->M_t->ChartAreas->Add(chartArea1);
+			this->M_t->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->M_t->Location = System::Drawing::Point(3, 29);
+			this->M_t->Name = L"M_t";
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->IsVisibleInLegend = false;
+			series1->Name = L"M_t";
+			this->M_t->Series->Add(series1);
+			this->M_t->Size = System::Drawing::Size(528, 366);
+			this->M_t->TabIndex = 0;
+			this->M_t->Text = L"M_t";
+			// 
+			// T_t
+			// 
+			chartArea2->Name = L"ChartArea1";
+			this->T_t->ChartAreas->Add(chartArea2);
+			this->T_t->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->T_t->Location = System::Drawing::Point(537, 29);
+			this->T_t->Name = L"T_t";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->IsVisibleInLegend = false;
+			series2->Name = L"T_t";
+			this->T_t->Series->Add(series2);
+			this->T_t->Size = System::Drawing::Size(529, 366);
+			this->T_t->TabIndex = 1;
+			this->T_t->Text = L"T_t";
+			// 
+			// toolStrip1
+			// 
+			this->tableLayoutPanel1->SetColumnSpan(this->toolStrip1, 2);
+			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->out_file });
+			this->toolStrip1->Location = System::Drawing::Point(0, 0);
+			this->toolStrip1->Name = L"toolStrip1";
+			this->toolStrip1->Size = System::Drawing::Size(1069, 25);
+			this->toolStrip1->TabIndex = 4;
+			this->toolStrip1->Text = L"toolStrip1";
+			// 
+			// out_file
+			// 
+			this->out_file->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->out_file->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"out_file.Image")));
+			this->out_file->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->out_file->Name = L"out_file";
+			this->out_file->Size = System::Drawing::Size(73, 22);
+			this->out_file->Text = L"Output file";
+			this->out_file->Click += gcnew System::EventHandler(this, &MyForm::out_file_Click);
 			// 
 			// timer
 			// 
@@ -198,15 +235,19 @@ namespace TMA {
 			this->Text = L"MyForm";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->tableLayoutPanel1->ResumeLayout(false);
+			this->tableLayoutPanel1->PerformLayout();
+			this->tableLayoutPanel2->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->EndInit();
-			this->tableLayoutPanel2->ResumeLayout(false);
+			this->toolStrip1->ResumeLayout(false);
+			this->toolStrip1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 		// Данные для калибровки и нагрева
-	float float_now = 0;
+
+	//String ^path = "";
 	float K_M;
 	float K_A;
 	float K_B;
@@ -235,6 +276,7 @@ namespace TMA {
 	float T_DOWN = 0;
 	int  timer_i = 0;
 	float float_now = 0;
+	int size = 0;
 
 	//Инициализация АЦПЦАП
 	int INITIALIZE_DAC()
@@ -316,7 +358,7 @@ namespace TMA {
 			// Проверка переменных, чтобы избежать деления на 0
 			if (numWordsDAC < 1 || numWordsDAC > 2 || freqDAC < 1. || attenDAC0 == 0. || resolutionDAC0 == 0.)
 			{
-				printf("Ошибочные значения параметров ЦАП\n\r");
+				//printf("Ошибочные значения параметров ЦАП\n\r");
 				Err = ZClose(typeDevice, numberDSP);
 				getch();
 				return 0;
@@ -510,7 +552,7 @@ namespace TMA {
 			// Проверка переменных, чтобы избежать деления на 0
 			if (numWordsADC == 0 || amplifyADC0 == 0 || amplifyADC1 == 0 || amplifyADC2 == 0 || amplifyADC3 == 0)
 			{
-				printf("Ошибочные значения параметров АЦП\n\r");
+				//printf("Ошибочные значения параметров АЦП\n\r");
 				Err = ZClose(typeDevice, numberDSP);
 				getch();
 				return 0;
@@ -801,7 +843,18 @@ namespace TMA {
 
 		}
 	}
-	   
+	//Подключение файла в который будут сохранятся данные
+private: System::Void out_file_Click(System::Object^  sender, System::EventArgs^  e)
+{
+	/*saveFileDialog1->Filter = "Output files|*.jr6|All files(*.*)|*.*";
+
+	System::Windows::Forms::DialogResult result = saveFileDialog1->ShowDialog();
+
+	if (result != System::Windows::Forms::DialogResult::OK)
+		return;
+	System::String^ filename = saveFileDialog1->FileName;
+	//path = filename;*/
+}
 	//Происходит при загрузке формы
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
 	{
@@ -824,6 +877,18 @@ namespace TMA {
 		button_start->Enabled = false;
 		button_stop->Enabled = true;
 		bool_do = true;
+		INITIALIZE_DAC();
+		INITIALIZE_ADC();
+		// Запуск ЦАП
+		Err = ZStartDAC(typeDevice, numberDSP);
+		// Запуск АЦП
+		Err = ZStartADC(typeDevice, numberDSP);
+		// Цикл чтения данных АЦП
+		pointerADC_old = 0;
+		// Цикл генерации синуса и записи данных ЦАП
+		pointerDriverDAC_old = 0;
+		ZETOFF_DAC();
+		ZETOFF_ADC();
 	}
 	//Остановка измерений
 	private: System::Void button_stop_Click(System::Object^  sender, System::EventArgs^  e)
@@ -831,6 +896,9 @@ namespace TMA {
 	button_start->Enabled = true;
 	button_stop->Enabled = false;
 	bool_do = false;
+	ZETOFF_DAC();
+	ZETOFF_ADC();
+	
 }
 	//Каждые 100 мск снимаются данные
 	private: System::Void timer_Tick(System::Object^  sender, System::EventArgs^  e) {
@@ -840,7 +908,7 @@ namespace TMA {
 				ZET_MESURE();
 
 
-				 //FLOAT_TEMP = FLOAT_TEMP +chrom(volt0);так было в версии 2.7
+				 //FLOAT_TE+MP = FLOAT_TEMP +chrom(volt0);так было в версии 2.7
 				 FLOAT_TEMP = FLOAT_TEMP + volt0;//так   в 2.8
 				 FLOAT_TEMP_U = FLOAT_TEMP_U + volt0 * 1000;
 				 FLOAT_A = FLOAT_A + volt1;
@@ -891,6 +959,9 @@ namespace TMA {
 					 fwrite("\n", sizeof(char), 1, fr);
 
 					 */
+
+
+
 					 if (INT_DATA == size_of_memory)
 					 {
 						 INT_DATA = 0;
