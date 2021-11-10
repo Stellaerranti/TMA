@@ -69,6 +69,19 @@ namespace TMA {
 	private: System::Windows::Forms::SaveFileDialog^  saveFileDialog1;
 			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ Ht_point;
 			 System::Windows::Forms::DataVisualization::Charting::DataPoint^ Tt_point;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel3;
+	private: System::Windows::Forms::TableLayoutPanel^  tableLayoutPanel4;
+	private: System::Windows::Forms::TextBox^  textKA;
+	private: System::Windows::Forms::TextBox^  textKB;
+	private: System::Windows::Forms::TextBox^  textKM;
+
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::TextBox^  textTend;
+	private: System::Windows::Forms::TextBox^  textdT;
 
 	private: System::ComponentModel::IContainer^  components;
 	protected:
@@ -102,11 +115,25 @@ namespace TMA {
 			this->out_file = (gcnew System::Windows::Forms::ToolStripButton());
 			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
 			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
+			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
+			this->textKA = (gcnew System::Windows::Forms::TextBox());
+			this->textKB = (gcnew System::Windows::Forms::TextBox());
+			this->textKM = (gcnew System::Windows::Forms::TextBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->textTend = (gcnew System::Windows::Forms::TextBox());
+			this->textdT = (gcnew System::Windows::Forms::TextBox());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->BeginInit();
 			this->toolStrip1->SuspendLayout();
+			this->tableLayoutPanel3->SuspendLayout();
+			this->tableLayoutPanel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -139,12 +166,14 @@ namespace TMA {
 				50)));
 			this->tableLayoutPanel2->Controls->Add(this->button_start, 1, 0);
 			this->tableLayoutPanel2->Controls->Add(this->button_stop, 1, 1);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel3, 0, 0);
+			this->tableLayoutPanel2->Controls->Add(this->tableLayoutPanel4, 0, 1);
 			this->tableLayoutPanel2->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->tableLayoutPanel2->Location = System::Drawing::Point(3, 401);
 			this->tableLayoutPanel2->Name = L"tableLayoutPanel2";
 			this->tableLayoutPanel2->RowCount = 2;
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 60)));
+			this->tableLayoutPanel2->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 40)));
 			this->tableLayoutPanel2->Size = System::Drawing::Size(528, 128);
 			this->tableLayoutPanel2->TabIndex = 3;
 			// 
@@ -161,7 +190,7 @@ namespace TMA {
 			// button_stop
 			// 
 			this->button_stop->Enabled = false;
-			this->button_stop->Location = System::Drawing::Point(267, 67);
+			this->button_stop->Location = System::Drawing::Point(267, 79);
 			this->button_stop->Name = L"button_stop";
 			this->button_stop->Size = System::Drawing::Size(75, 23);
 			this->button_stop->TabIndex = 3;
@@ -227,6 +256,139 @@ namespace TMA {
 			this->timer->Enabled = true;
 			this->timer->Tick += gcnew System::EventHandler(this, &MyForm::timer_Tick);
 			// 
+			// tableLayoutPanel3
+			// 
+			this->tableLayoutPanel3->ColumnCount = 2;
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
+			this->tableLayoutPanel3->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				80)));
+			this->tableLayoutPanel3->Controls->Add(this->textKA, 1, 0);
+			this->tableLayoutPanel3->Controls->Add(this->textKB, 1, 1);
+			this->tableLayoutPanel3->Controls->Add(this->textKM, 1, 2);
+			this->tableLayoutPanel3->Controls->Add(this->label1, 0, 0);
+			this->tableLayoutPanel3->Controls->Add(this->label2, 0, 1);
+			this->tableLayoutPanel3->Controls->Add(this->label3, 0, 2);
+			this->tableLayoutPanel3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel3->Location = System::Drawing::Point(3, 3);
+			this->tableLayoutPanel3->Name = L"tableLayoutPanel3";
+			this->tableLayoutPanel3->RowCount = 3;
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
+			this->tableLayoutPanel3->Size = System::Drawing::Size(258, 70);
+			this->tableLayoutPanel3->TabIndex = 4;
+			// 
+			// tableLayoutPanel4
+			// 
+			this->tableLayoutPanel4->ColumnCount = 2;
+			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
+			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				80)));
+			this->tableLayoutPanel4->Controls->Add(this->label4, 0, 0);
+			this->tableLayoutPanel4->Controls->Add(this->label5, 0, 1);
+			this->tableLayoutPanel4->Controls->Add(this->textTend, 1, 0);
+			this->tableLayoutPanel4->Controls->Add(this->textdT, 1, 1);
+			this->tableLayoutPanel4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 79);
+			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
+			this->tableLayoutPanel4->RowCount = 2;
+			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel4->Size = System::Drawing::Size(258, 46);
+			this->tableLayoutPanel4->TabIndex = 5;
+			// 
+			// textKA
+			// 
+			this->textKA->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textKA->Location = System::Drawing::Point(54, 3);
+			this->textKA->Name = L"textKA";
+			this->textKA->Size = System::Drawing::Size(201, 20);
+			this->textKA->TabIndex = 0;
+			// 
+			// textKB
+			// 
+			this->textKB->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textKB->Location = System::Drawing::Point(54, 26);
+			this->textKB->Name = L"textKB";
+			this->textKB->Size = System::Drawing::Size(201, 20);
+			this->textKB->TabIndex = 1;
+			// 
+			// textKM
+			// 
+			this->textKM->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textKM->Location = System::Drawing::Point(54, 49);
+			this->textKM->Name = L"textKM";
+			this->textKM->Size = System::Drawing::Size(201, 20);
+			this->textKM->TabIndex = 2;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label1->Location = System::Drawing::Point(3, 0);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(45, 23);
+			this->label1->TabIndex = 3;
+			this->label1->Text = L"KA";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label2->Location = System::Drawing::Point(3, 23);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(45, 23);
+			this->label2->TabIndex = 4;
+			this->label2->Text = L"KB";
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label3->Location = System::Drawing::Point(3, 46);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(45, 24);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"KM";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label4->Location = System::Drawing::Point(3, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(45, 23);
+			this->label4->TabIndex = 0;
+			this->label4->Text = L"Tend";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->label5->Location = System::Drawing::Point(3, 23);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(45, 23);
+			this->label5->TabIndex = 1;
+			this->label5->Text = L"dT";
+			// 
+			// textTend
+			// 
+			this->textTend->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textTend->Location = System::Drawing::Point(54, 3);
+			this->textTend->Name = L"textTend";
+			this->textTend->Size = System::Drawing::Size(201, 20);
+			this->textTend->TabIndex = 2;
+			// 
+			// textdT
+			// 
+			this->textdT->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->textdT->Location = System::Drawing::Point(54, 26);
+			this->textdT->Name = L"textdT";
+			this->textdT->Size = System::Drawing::Size(201, 20);
+			this->textdT->TabIndex = 3;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -243,6 +405,10 @@ namespace TMA {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->EndInit();
 			this->toolStrip1->ResumeLayout(false);
 			this->toolStrip1->PerformLayout();
+			this->tableLayoutPanel3->ResumeLayout(false);
+			this->tableLayoutPanel3->PerformLayout();
+			this->tableLayoutPanel4->ResumeLayout(false);
+			this->tableLayoutPanel4->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -897,21 +1063,46 @@ namespace TMA {
 	//Запуск измерений
 	private: System::Void button_start_Click(System::Object^  sender, System::EventArgs^  e) 
 	{
-		button_start->Enabled = false;
-		button_stop->Enabled = true;
-		bool_do = true;
-		INITIALIZE_DAC();
-		INITIALIZE_ADC();
-		// Запуск ЦАП
-		Err = ZStartDAC(typeDevice, numberDSP);
-		// Запуск АЦП
-		Err = ZStartADC(typeDevice, numberDSP);
-		// Цикл чтения данных АЦП
-		pointerADC_old = 0;
-		// Цикл генерации синуса и записи данных ЦАП
-		pointerDriverDAC_old = 0;
-		ZETOFF_DAC();
-		ZETOFF_ADC();
+		try {
+
+			if ((textKA->Text) == "")
+				throw std::exception("No such numbers");
+				K_A = Convert::ToDouble(textKA->Text);
+			if ((textKB->Text) == "")
+				throw std::exception("No such numbers");
+				K_B = Convert::ToDouble(textKB->Text);
+			if ((textKM->Text) == "")
+				throw std::exception("No such numbers");
+				K_M = Convert::ToDouble(textKM->Text);
+			if ((textdT->Text) == "")
+				throw std::exception("No such numbers");
+				dT = Convert::ToDouble(textdT->Text);
+			if ((textTend->Text) == "")
+				throw std::exception("No such numbers");
+			GLOBAL_T = Convert::ToDouble(textTend->Text);
+
+			button_start->Enabled = false;
+			button_stop->Enabled = true;
+			bool_do = true;
+			INITIALIZE_DAC();
+			INITIALIZE_ADC();
+			// Запуск ЦАП
+			Err = ZStartDAC(typeDevice, numberDSP);
+			// Запуск АЦП
+			Err = ZStartADC(typeDevice, numberDSP);
+			// Цикл чтения данных АЦП
+			pointerADC_old = 0;
+			// Цикл генерации синуса и записи данных ЦАП
+			pointerDriverDAC_old = 0;
+			ZETOFF_DAC();
+			ZETOFF_ADC();
+		}
+		catch (const std::exception&)
+		{
+			MessageBox::Show("Invalid input");
+			button_start->Enabled = true;
+			button_stop->Enabled = false;
+		}
 	}
 	//Остановка измерений
 	private: System::Void button_stop_Click(System::Object^  sender, System::EventArgs^  e)
