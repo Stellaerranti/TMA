@@ -1,70 +1,129 @@
 ﻿  MyForm.cpp
-i:\smartgit\rep\tma\tma\tma\myform.h(290): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(300): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(310): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(322): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(332): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(342): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(352): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(363): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(373): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(417): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(427): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(437): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(446): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(455): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(464): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(474): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(483): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(492): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(502): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(512): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(521): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(530): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(539): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(548): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(557): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(567): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\conio.h(453): note:  см. объявление "getch"
-i:\smartgit\rep\tma\tma\tma\myform.h(666): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(669): warning C4244: =: преобразование "int" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(680): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(659): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\time.h(506): note:  см. объявление "localtime"
-i:\smartgit\rep\tma\tma\tma\myform.h(668): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
-  c:\program files (x86)\windows kits\10\include\10.0.17763.0\ucrt\time.h(506): note:  см. объявление "localtime"
-i:\smartgit\rep\tma\tma\tma\myform.h(712): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(912): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(913): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(914): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.h(916): warning C4244: =: преобразование "double" в "float", возможна потеря данных
-i:\smartgit\rep\tma\tma\tma\myform.cpp(7): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
-i:\smartgit\rep\tma\tma\tma\myform.h(408): warning C4715: TMA::MyForm::INITIALIZE_DAC: значение возвращается не при всех путях выполнения
-i:\smartgit\rep\tma\tma\tma\myform.h(577): warning C4715: TMA::MyForm::INITIALIZE_ADC: значение возвращается не при всех путях выполнения
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(462,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(472,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(482,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(494,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(504,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(514,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(524,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(535,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(545,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(589,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(599,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(609,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(618,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(627,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(636,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(646,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(655,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(664,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(674,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(684,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(693,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(702,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(711,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(720,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(729,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(739,5): warning C4996: 'getch': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _getch. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(838,13): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(841,154): warning C4244: =: преобразование "int" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(852,11): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(831,27): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(840,24): warning C4996: 'localtime': This function or variable may be unsafe. Consider using localtime_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(884,59): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1068,28): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1071,28): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1074,28): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1077,27): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1080,32): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1124,30): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1125,34): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1126,24): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(1128,24): warning C4244: =: преобразование "double" в "float", возможна потеря данных
+  (компиляция исходного файла "MyForm.cpp")
+  
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.cpp(7,6): warning C4829: Возможно, неправильные параметры функции main. Рекомендуемый вариант - "int main(Platform::Array<Platform::String^>^ argv)"
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(580,1): warning C4715: TMA::MyForm::INITIALIZE_DAC: значение возвращается не при всех путях выполнения
+C:\Users\user\Documents\GitHub\TMA\TMA\TMA\MyForm.h(749,1): warning C4715: TMA::MyForm::INITIALIZE_ADC: значение возвращается не при всех путях выполнения
   MyForm.obj : обнаружен модуль MSIL; для MSIL последовательная компоновка отключена; выполняется полная компоновка
-  TMA.vcxproj -> I:\SmartGit\rep\TMA\TMA\Debug\TMA.exe
+  TMA.vcxproj -> C:\Users\user\Documents\GitHub\TMA\TMA\Debug\TMA.exe

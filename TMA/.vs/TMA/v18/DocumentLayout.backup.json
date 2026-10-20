@@ -7,6 +7,10 @@
       "RelativeMoniker": "D:0:0:{374961E1-6A5C-4A5B-92AE-441171F29E4F}|TMA\\TMA.vcxproj|solutionrelative:TMA\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}|Form"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{374961E1-6A5C-4A5B-92AE-441171F29E4F}|TMA\\TMA.vcxproj|C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{374961E1-6A5C-4A5B-92AE-441171F29E4F}|TMA\\TMA.vcxproj|solutionrelative:TMA\\MyForm.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{374961E1-6A5C-4A5B-92AE-441171F29E4F}|TMA\\TMA.vcxproj|C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{374961E1-6A5C-4A5B-92AE-441171F29E4F}|TMA\\TMA.vcxproj|solutionrelative:TMA\\MyForm.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -18,8 +22,21 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyForm.h",
+              "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.h",
+              "RelativeDocumentMoniker": "TMA\\MyForm.h",
+              "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.h",
+              "RelativeToolTip": "TMA\\MyForm.h",
+              "ViewState": "AgIAAAkEAAAAAAAAAAAmwBcEAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-20T10:47:03.569Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -29,12 +46,12 @@
               "ToolTip": "C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.h [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "RelativeToolTip": "TMA\\MyForm.h [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-10-20T10:32:13.728Z",
+              "WhenOpened": "2026-10-20T10:46:06.161Z",
               "EditorCaption": " [\u041A\u043E\u043D\u0441\u0442\u0440\u0443\u043A\u0442\u043E\u0440]"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "MyForm.cpp",
               "DocumentMoniker": "C:\\Users\\user\\Documents\\GitHub\\TMA\\TMA\\TMA\\MyForm.cpp",
               "RelativeDocumentMoniker": "TMA\\MyForm.cpp",

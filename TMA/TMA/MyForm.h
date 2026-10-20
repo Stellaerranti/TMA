@@ -100,40 +100,39 @@ namespace TMA {
 		void InitializeComponent(void)
 		{
 			this->components = (gcnew System::ComponentModel::Container());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::Windows::Forms::DataVisualization::Charting::ChartArea^  chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
-			System::Windows::Forms::DataVisualization::Charting::Series^  series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea1 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series1 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
+			System::Windows::Forms::DataVisualization::Charting::ChartArea^ chartArea2 = (gcnew System::Windows::Forms::DataVisualization::Charting::ChartArea());
+			System::Windows::Forms::DataVisualization::Charting::Series^ series2 = (gcnew System::Windows::Forms::DataVisualization::Charting::Series());
 			this->tableLayoutPanel1 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->tableLayoutPanel2 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->button_start = (gcnew System::Windows::Forms::Button());
 			this->button_stop = (gcnew System::Windows::Forms::Button());
-			this->M_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->T_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
-			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
-			this->out_file = (gcnew System::Windows::Forms::ToolStripButton());
-			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
-			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tableLayoutPanel3 = (gcnew System::Windows::Forms::TableLayoutPanel());
-			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->textKA = (gcnew System::Windows::Forms::TextBox());
 			this->textKB = (gcnew System::Windows::Forms::TextBox());
 			this->textKM = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->tableLayoutPanel4 = (gcnew System::Windows::Forms::TableLayoutPanel());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textTend = (gcnew System::Windows::Forms::TextBox());
 			this->textdT = (gcnew System::Windows::Forms::TextBox());
+			this->M_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->T_t = (gcnew System::Windows::Forms::DataVisualization::Charting::Chart());
+			this->toolStrip1 = (gcnew System::Windows::Forms::ToolStrip());
+			this->out_file = (gcnew System::Windows::Forms::ToolStripButton());
+			this->timer = (gcnew System::Windows::Forms::Timer(this->components));
+			this->saveFileDialog1 = (gcnew System::Windows::Forms::SaveFileDialog());
 			this->tableLayoutPanel1->SuspendLayout();
 			this->tableLayoutPanel2->SuspendLayout();
+			this->tableLayoutPanel3->SuspendLayout();
+			this->tableLayoutPanel4->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->BeginInit();
 			this->toolStrip1->SuspendLayout();
-			this->tableLayoutPanel3->SuspendLayout();
-			this->tableLayoutPanel4->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// tableLayoutPanel1
@@ -198,64 +197,6 @@ namespace TMA {
 			this->button_stop->UseVisualStyleBackColor = true;
 			this->button_stop->Click += gcnew System::EventHandler(this, &MyForm::button_stop_Click);
 			// 
-			// M_t
-			// 
-			chartArea1->Name = L"ChartArea1";
-			this->M_t->ChartAreas->Add(chartArea1);
-			this->M_t->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->M_t->Location = System::Drawing::Point(3, 29);
-			this->M_t->Name = L"M_t";
-			series1->ChartArea = L"ChartArea1";
-			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series1->IsVisibleInLegend = false;
-			series1->Name = L"M_t";
-			this->M_t->Series->Add(series1);
-			this->M_t->Size = System::Drawing::Size(528, 366);
-			this->M_t->TabIndex = 0;
-			this->M_t->Text = L"M_t";
-			// 
-			// T_t
-			// 
-			chartArea2->Name = L"ChartArea1";
-			this->T_t->ChartAreas->Add(chartArea2);
-			this->T_t->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->T_t->Location = System::Drawing::Point(537, 29);
-			this->T_t->Name = L"T_t";
-			series2->ChartArea = L"ChartArea1";
-			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
-			series2->IsVisibleInLegend = false;
-			series2->Name = L"T_t";
-			this->T_t->Series->Add(series2);
-			this->T_t->Size = System::Drawing::Size(529, 366);
-			this->T_t->TabIndex = 1;
-			this->T_t->Text = L"T_t";
-			// 
-			// toolStrip1
-			// 
-			this->tableLayoutPanel1->SetColumnSpan(this->toolStrip1, 2);
-			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
-			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->out_file });
-			this->toolStrip1->Location = System::Drawing::Point(0, 0);
-			this->toolStrip1->Name = L"toolStrip1";
-			this->toolStrip1->Size = System::Drawing::Size(1069, 25);
-			this->toolStrip1->TabIndex = 4;
-			this->toolStrip1->Text = L"toolStrip1";
-			// 
-			// out_file
-			// 
-			this->out_file->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
-			this->out_file->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"out_file.Image")));
-			this->out_file->ImageTransparentColor = System::Drawing::Color::Magenta;
-			this->out_file->Name = L"out_file";
-			this->out_file->Size = System::Drawing::Size(73, 22);
-			this->out_file->Text = L"Output file";
-			this->out_file->Click += gcnew System::EventHandler(this, &MyForm::out_file_Click);
-			// 
-			// timer
-			// 
-			this->timer->Enabled = true;
-			this->timer->Tick += gcnew System::EventHandler(this, &MyForm::timer_Tick);
-			// 
 			// tableLayoutPanel3
 			// 
 			this->tableLayoutPanel3->ColumnCount = 2;
@@ -278,26 +219,6 @@ namespace TMA {
 			this->tableLayoutPanel3->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 33.33333F)));
 			this->tableLayoutPanel3->Size = System::Drawing::Size(258, 70);
 			this->tableLayoutPanel3->TabIndex = 4;
-			// 
-			// tableLayoutPanel4
-			// 
-			this->tableLayoutPanel4->ColumnCount = 2;
-			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				20)));
-			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
-				80)));
-			this->tableLayoutPanel4->Controls->Add(this->label4, 0, 0);
-			this->tableLayoutPanel4->Controls->Add(this->label5, 0, 1);
-			this->tableLayoutPanel4->Controls->Add(this->textTend, 1, 0);
-			this->tableLayoutPanel4->Controls->Add(this->textdT, 1, 1);
-			this->tableLayoutPanel4->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 79);
-			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
-			this->tableLayoutPanel4->RowCount = 2;
-			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
-			this->tableLayoutPanel4->Size = System::Drawing::Size(258, 46);
-			this->tableLayoutPanel4->TabIndex = 5;
 			// 
 			// textKA
 			// 
@@ -353,6 +274,26 @@ namespace TMA {
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"KM";
 			// 
+			// tableLayoutPanel4
+			// 
+			this->tableLayoutPanel4->ColumnCount = 2;
+			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				20)));
+			this->tableLayoutPanel4->ColumnStyles->Add((gcnew System::Windows::Forms::ColumnStyle(System::Windows::Forms::SizeType::Percent,
+				80)));
+			this->tableLayoutPanel4->Controls->Add(this->label4, 0, 0);
+			this->tableLayoutPanel4->Controls->Add(this->label5, 0, 1);
+			this->tableLayoutPanel4->Controls->Add(this->textTend, 1, 0);
+			this->tableLayoutPanel4->Controls->Add(this->textdT, 1, 1);
+			this->tableLayoutPanel4->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->tableLayoutPanel4->Location = System::Drawing::Point(3, 79);
+			this->tableLayoutPanel4->Name = L"tableLayoutPanel4";
+			this->tableLayoutPanel4->RowCount = 2;
+			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel4->RowStyles->Add((gcnew System::Windows::Forms::RowStyle(System::Windows::Forms::SizeType::Percent, 50)));
+			this->tableLayoutPanel4->Size = System::Drawing::Size(258, 46);
+			this->tableLayoutPanel4->TabIndex = 5;
+			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
@@ -389,6 +330,63 @@ namespace TMA {
 			this->textdT->Size = System::Drawing::Size(201, 20);
 			this->textdT->TabIndex = 3;
 			// 
+			// M_t
+			// 
+			chartArea1->Name = L"ChartArea1";
+			this->M_t->ChartAreas->Add(chartArea1);
+			this->M_t->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->M_t->Location = System::Drawing::Point(3, 29);
+			this->M_t->Name = L"M_t";
+			series1->ChartArea = L"ChartArea1";
+			series1->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series1->IsVisibleInLegend = false;
+			series1->Name = L"M_t";
+			this->M_t->Series->Add(series1);
+			this->M_t->Size = System::Drawing::Size(528, 366);
+			this->M_t->TabIndex = 0;
+			this->M_t->Text = L"M_t";
+			// 
+			// T_t
+			// 
+			chartArea2->Name = L"ChartArea1";
+			this->T_t->ChartAreas->Add(chartArea2);
+			this->T_t->Dock = System::Windows::Forms::DockStyle::Fill;
+			this->T_t->Location = System::Drawing::Point(537, 29);
+			this->T_t->Name = L"T_t";
+			series2->ChartArea = L"ChartArea1";
+			series2->ChartType = System::Windows::Forms::DataVisualization::Charting::SeriesChartType::Spline;
+			series2->IsVisibleInLegend = false;
+			series2->Name = L"T_t";
+			this->T_t->Series->Add(series2);
+			this->T_t->Size = System::Drawing::Size(529, 366);
+			this->T_t->TabIndex = 1;
+			this->T_t->Text = L"T_t";
+			// 
+			// toolStrip1
+			// 
+			this->tableLayoutPanel1->SetColumnSpan(this->toolStrip1, 2);
+			this->toolStrip1->ImageScalingSize = System::Drawing::Size(17, 17);
+			this->toolStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->out_file });
+			this->toolStrip1->Location = System::Drawing::Point(0, 0);
+			this->toolStrip1->Name = L"toolStrip1";
+			this->toolStrip1->Size = System::Drawing::Size(1069, 25);
+			this->toolStrip1->TabIndex = 4;
+			this->toolStrip1->Text = L"toolStrip1";
+			// 
+			// out_file
+			// 
+			this->out_file->DisplayStyle = System::Windows::Forms::ToolStripItemDisplayStyle::Text;
+			this->out_file->ImageTransparentColor = System::Drawing::Color::Magenta;
+			this->out_file->Name = L"out_file";
+			this->out_file->Size = System::Drawing::Size(68, 22);
+			this->out_file->Text = L"Output file";
+			this->out_file->Click += gcnew System::EventHandler(this, &MyForm::out_file_Click);
+			// 
+			// timer
+			// 
+			this->timer->Enabled = true;
+			this->timer->Tick += gcnew System::EventHandler(this, &MyForm::timer_Tick);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
@@ -401,14 +399,14 @@ namespace TMA {
 			this->tableLayoutPanel1->ResumeLayout(false);
 			this->tableLayoutPanel1->PerformLayout();
 			this->tableLayoutPanel2->ResumeLayout(false);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->EndInit();
-			this->toolStrip1->ResumeLayout(false);
-			this->toolStrip1->PerformLayout();
 			this->tableLayoutPanel3->ResumeLayout(false);
 			this->tableLayoutPanel3->PerformLayout();
 			this->tableLayoutPanel4->ResumeLayout(false);
 			this->tableLayoutPanel4->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->M_t))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->T_t))->EndInit();
+			this->toolStrip1->ResumeLayout(false);
+			this->toolStrip1->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -1047,8 +1045,8 @@ namespace TMA {
 	//Происходит при загрузке формы
 	private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e)
 	{
-		M_t->Series['M_t']->Points->Clear();
-		T_t->Series['T_t']->Points->Clear();
+		//M_t->Series['M_t']->Points->Clear();
+		//T_t->Series['T_t']->Points->Clear();
 
 		M_t->ChartAreas[0]->AxisX->Crossing = 0;
 		M_t->ChartAreas[0]->AxisY->Crossing = 0;
